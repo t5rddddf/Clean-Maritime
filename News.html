@@ -9,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700&family=Marcellus&family=Overpass:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./jquery-1.9.1-min.js"></script>
+    <style>
+        .table-tr-hidden {display: none;}
+        .table-show-less {cursor: pointer;}
+        .table-read-more {cursor: pointer;}
+        .content-table {margin-top: 20px;}
+    </style>
     <script>
         tailwind.config = {
           theme: {
@@ -21,18 +28,27 @@
             }
           }
         }
+        $(document).ready(function() {
+            $('.table-read-more').on('click', function() {
+                $(this).closest('.content-table').find('.table-tr-hidden').show();
+                $(this).closest('tr').hide();
+            })
+            $('.table-show-less').on('click', function() {
+                $(this).closest('.content-table').find('.table-tr-hidden').hide();
+                $('.table-read-more').closest('tr').show();
+            })
+        })
     </script>
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <div class="relative z-40 relative px-6 text-white">
         <div class="h-32 py-4 container mx-auto flex items-center justify-between relative z-10">
-            
             <a href="/" class="uppercase font-bold text-2xl flex items-center justify-start h-full hover:opacity-50">Clean Maritime</a>
             <div x-data="{ open: false }" class="relative z-40 flex-1 text-right">
                 <div :class="{ 'flex' : open, 'hidden' : open === false }" class="z-40 px-6 fixed md:relative top-0 left-0 w-full md:w-auto h-screen md:h-auto md:flex flex-col md:flex-row items-center justify-start md:justify-end pt-32 md:pt-0 overflow-y-scroll md:overflow-visible bg-gray-200 text-gray-900 md:text-current md:bg-transparent leading-loose text-cyan-900 text-sm md:text-sm font-semibold tracking-widest hidden uppercase font-heading">
-                    <a href="/" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Home</a>
+                    <a href="./index.html" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Home</a>
                     <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">About</a>
-                    <a href="./ZEVI_projects.html" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Projects</a>
+                    <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Projects</a>
                     <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Reports</a>
                     <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">News</a>
                     <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Case studies</a>
@@ -77,49 +93,47 @@
         ]
     });
     </script>
-    <div x-data="slideshow()" class="w-full h-screen relative z-20 -mt-32 px-12 flex items-center justify-center">
+    <div x-data="slideshow()" class=" relative z-20 -mt-32 px-12 flex items-center justify-center" style="height: 128px;">
         <div class="h-full w-full absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-30"></div>
         <div class="relative z-10 text-center px-12">
-            <h1 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-3xl lg:text-4xl xl:text-5xl font-black leading-relaxed lg:leading-relaxed xl:leading-normal text-white font-display">About Clean Maritime</h1>
-            <div class="max-w-xs md:max-w-sm lg:max-w-md mx-auto mt-8 text-white text-sm lg:text-base lg:leading-loose tracking-wide">
-                <p>Maritime Sector facilitates 95% of UK trades (£46.1bn in GVA and more than one-million jobs). In order to achieve the aims of the clean maritime plan. These will need to be serviced by clean, low emissions vessels.</p>
-            </div>
+            <h1 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-3xl lg:text-4xl xl:text-5xl font-black leading-relaxed lg:leading-relaxed xl:leading-normal text-white font-display"></h1>
         </div>
         <img x-bind:src="images[current]" class="absolute top-0 left-0 w-full h-full object-cover opacity-90">
-        
     </div>
     <div class="p-12 md:p-24 md:pt-12">
-        <h3 class="text-xs uppercase tracking-widest text-center mb-2 text-gray-800">Featured Links</h3>
-        <h2 class="text-2xl uppercase tracking-widest text-center lg:text-4xl font-heading mb-20 text-gray-900">Work Overview</h2>
-        <div class="lg:grid grid-cols-4 grid-rows-3 gap-5 font-display text-3xl text-white">
-            <a href="#" class="bg-black col-span-1 row-span-1 relative flex items-center justify-center py-24">
-                <span class="relative z-10">About</span>
-                <img src="https://unctad.org/sites/default/files/2020-11/RMT-2020_1200x675.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-25">
-            </a>
-            <a href="#" class="bg-black col-span-1 row-span-1 relative flex items-center justify-center py-24">
-                <span class="relative z-10">Projects</span>
-                <img src="https://www.aramcolife.com/-/media/aramco-life/publications/the-arabian-sun/articles/2021/week-49/ras-al-khair-maritime-project.jpg?mw=1200&hash=2A0614AAF23A9CE7B16D9DBA57470861" class="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-25">
-            </a>
-            <a href="#" class="bg-black col-span-2 row-span-2 relative flex items-center justify-center py-24">
-                <span class="relative z-10">Case studies</span>
-                <img src="https://themanufacturer-cdn-1.s3.eu-west-2.amazonaws.com/wp-content/uploads/2021/10/21120325/3-Royal-Seaforth-Container-Terminal-Liverpool-Peel-Ports-1024x713.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-25">
-            </a>
-            <a href="#" class="bg-black col-span-2 row-span-2 relative flex items-center justify-center py-24">
-                <span class="relative z-10">Open access data</span>
-                <img src="https://lbndaily.co.uk/wp-content/uploads/2021/02/Liverpool-e1612888720165.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-25">
-            </a>
-            <a href="#" class="bg-black col-span-1 row-span-1 relative flex items-center justify-center py-24">
-                <span class="relative z-10">News</span>
-                <img src="https://bmmagazine.co.uk/wp-content/uploads/2021/03/shutterstock_127809008-scaled-e1614785452677.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-25">
-            </a>
-            <a href="#" class="bg-black col-span-1 row-span-1 relative flex items-center justify-center py-24">
-                <span class="relative z-10">Contact</span>
-                <img src="https://www.airvistara.com/content/dam/airvistara/global/english/common/image/Contact%20Us-26%20Apr.jpg" class="absolute inset-0 w-full h-full object-cover opacity-50 hover:opacity-25">
-            </a>
-        </div>
+        <h2 class="text-2xl uppercase tracking-widest text-center lg:text-4xl font-heading  text-gray-900">News</h2>
+
+        <!--news list-->
+        <section class="container mx-auto p-6">
+            <h2 class="text-2xl font-bold mb-4 text-gray-800">Latest News</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div class="bg-white rounded-lg shadow-md p-4">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">Liverpool Uni and UK Shipping Host Hong Kong Maritime Event</h3>
+                <p class="text-gray-600">The University of Liverpool and the UK Shipping Concierge hosted an event for maritime leaders at the British Consulate in Hong Kong this month (19 April 2024).</p>
+                <a href="https://www.miragenews.com/liverpool-uni-and-uk-shipping-host-hong-kong-1221384/" class="text-blue-500 hover:underline mt-2 inline-block">Read more</a>
+              </div>
+              <div class="bg-white rounded-lg shadow-md p-4">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">News Title 2</h3>
+                <p class="text-gray-600">Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris.</p>
+                <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read more</a>
+              </div>
+              <div class="bg-white rounded-lg shadow-md p-4">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">News Title 3</h3>
+                <p class="text-gray-600">Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</p>
+                <a href="#" class="text-blue-500 hover:underline mt-2 inline-block">Read more</a>
+              </div>
+            </div>
+          </section>
+        <!--pagenation-->
+        <div class="mt-6 flex items-center justify-between gap-2">
+            <button class="inline-flex items-center justify-center px-2 py-[calc(theme(spacing.[1.5])-1px)] rounded-lg border border-transparent shadow ring-1 ring-black/10 whitespace-nowrap text-sm font-medium text-gray-950 data-[disabled]:bg-transparent data-[hover]:bg-gray-50 data-[disabled]:opacity-40" type="button" disabled="" data-headlessui-state="disabled" data-disabled=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4"><path fill-rule="evenodd" d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>Previous</button>
+            
+            <div class="flex gap-2 max-sm:hidden"><a data-active="true" class="size-7 rounded-lg text-center text-sm/7 font-medium data-[hover]:bg-gray-100 data-[active]:shadow data-[active]:ring-1 data-[active]:ring-black/10 data-[active]:data-[hover]:bg-gray-50" data-headlessui-state="" href="/blog">1</a><a class="size-7 rounded-lg text-center text-sm/7 font-medium data-[hover]:bg-gray-100 data-[active]:shadow data-[active]:ring-1 data-[active]:ring-black/10 data-[active]:data-[hover]:bg-gray-50" data-headlessui-state="" href="/blog?page=2">2</a></div>
+            
+            <a class="inline-flex items-center justify-center px-2 py-[calc(theme(spacing.[1.5])-1px)] rounded-lg border border-transparent shadow ring-1 ring-black/10 whitespace-nowrap text-sm font-medium text-gray-950 data-[disabled]:bg-transparent data-[hover]:bg-gray-50 data-[disabled]:opacity-40" data-headlessui-state="" href="/blog?page=2">Next<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4"><path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg></a>
+        </div>    
     </div>
-    
-    
+
     <div class="text-gray-800 text-opacity-40 text-xs tracking-widest px-12" style="border-top: 1px solid black; background-color:#0a0e1c; color: white">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 py-24">
             <div>
@@ -147,7 +161,6 @@
                 <a href="#" class="block mb-4">EnBW/BP Report</a>
                 <a href="#" class="block mb-4">Other LJMU reports</a>
             </div>
-            
             
         </div>
     <!-- </div>

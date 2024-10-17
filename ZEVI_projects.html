@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Clean Maritime</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700&family=Marcellus&family=Overpass:wght@200;300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./jquery-1.9.1-min.js"></script>
+    <style>
+        .table-tr-hidden {display: none;}
+        .table-show-less {cursor: pointer;}
+        .table-read-more {cursor: pointer;}
+        .content-table {margin-top: 20px;}
+    </style>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              fontFamily: {
+                'display' : ['Marcellus', 'serif'],
+                'heading' : ['Barlow Semi Condensed', 'serif'],
+                'sans' : ['Overpass', 'sans-serif']
+              }
+            }
+          }
+        }
+        $(document).ready(function() {
+            $('.table-read-more').on('click', function() {
+                $(this).closest('.content-table').find('.table-tr-hidden').show();
+                $(this).closest('tr').hide();
+            })
+            $('.table-show-less').on('click', function() {
+                $(this).closest('.content-table').find('.table-tr-hidden').hide();
+                $('.table-read-more').closest('tr').show();
+            })
+        })
+    </script>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    <div class="relative z-40 relative px-6 text-white">
+        <div class="h-32 py-4 container mx-auto flex items-center justify-between relative z-10">
+            <a href="/" class="uppercase font-bold text-2xl flex items-center justify-start h-full hover:opacity-50">Clean Maritime</a>
+            <div x-data="{ open: false }" class="relative z-40 flex-1 text-right">
+                <div :class="{ 'flex' : open, 'hidden' : open === false }" class="z-40 px-6 fixed md:relative top-0 left-0 w-full md:w-auto h-screen md:h-auto md:flex flex-col md:flex-row items-center justify-start md:justify-end pt-32 md:pt-0 overflow-y-scroll md:overflow-visible bg-gray-200 text-gray-900 md:text-current md:bg-transparent leading-loose text-cyan-900 text-sm md:text-sm font-semibold tracking-widest hidden uppercase font-heading">
+                    <a href="./index.html" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Home</a>
+                    <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">About</a>
+                    <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Projects</a>
+                    <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Reports</a>
+                    <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">News</a>
+                    <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Case studies</a>
+                    <a href="/#" class="text-left block w-full md:w-auto border-b border-gray-300 md:border-none py-4 md:py-0 md:ml-8 hover:opacity-50">Contact</a>
+                    <div class="flex md:hidden items-center justify-center my-12">
+                        <a href="#" class="mx-4">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="mx-4">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="mx-4">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="mx-4">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <button @click="open = false" type="button" :class="{ 'inline-block' : open, 'hidden' : !open }" class="md:hidden absolute top-0 right-0 leading-none uppercase tracking-widest font-semibold z-50 hidden px-6 h-32 text-gray-900 flex items-center justify-center">Close</button>
+                </div>
+                <button @click="open = true" type="button" :class="{ 'hidden' : open, 'inline-block' : !open }" class="block md:hidden text-4xl font-thin inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-8 h-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+    const slideshow = () => ({
+        current: 0,
+        images: [
+        './bg.jpg',
+        ]
+    });
+    </script>
+    <div x-data="slideshow()" class=" relative z-20 -mt-32 px-12 flex items-center justify-center" style="height: 128px;">
+        <div class="h-full w-full absolute inset-0 bg-gradient-to-b from-black to-transparent opacity-30"></div>
+        <div class="relative z-10 text-center px-12">
+            <h1 class="md:max-w-lg lg:max-w-lg xl:max-w-2xl mx-auto text-3xl lg:text-4xl xl:text-5xl font-black leading-relaxed lg:leading-relaxed xl:leading-normal text-white font-display"></h1>
+        </div>
+        <img x-bind:src="images[current]" class="absolute top-0 left-0 w-full h-full object-cover opacity-90">
+    </div>
+    <div class="p-12 md:p-24 md:pt-12">
+        <h2 class="text-2xl uppercase tracking-widest text-center lg:text-4xl font-heading  text-gray-900">ZEVI projects</h2>
+        <div class="flex flex-wrap items-center justify-between gap-2" style="margin-bottom: 20px;">
+            <button class="flex items-center justify-between gap-2 font-medium" id="headlessui-menu-button-:ro:" type="button" aria-haspopup="menu" aria-expanded="false" data-headlessui-state="">
+            All categories
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-slate-900">
+                <path fill-rule="evenodd" d="M5.22 10.22a.75.75 0 0 1 1.06 0L8 11.94l1.72-1.72a.75.75 0 1 1 1.06 1.06l-2.25 2.25a.75.75 0 0 1-1.06 0l-2.25-2.25a.75.75 0 0 1 0-1.06ZM10.78 5.78a.75.75 0 0 1-1.06 0L8 4.06 6.28 5.78a.75.75 0 0 1-1.06-1.06l2.25-2.25a.75.75 0 0 1 1.06 0l2.25 2.25a.75.75 0 0 1 0 1.06Z" clip-rule="evenodd"></path>
+            </svg>
+            </button>
+        </div>
+        <!--table list-->
+        <table class="min-w-full bg-white border border-gray-300 content-table">   
+            <thead>
+                <tr>
+                    <th class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" colspan="4" style="font-weight: bold;">eSOV: Electric SOV with Methanol Range Extender</th>
+                  </tr>
+              <tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Organisation Name</th>
+                    <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Work Region</th>
+                    <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Proposed Project Costs (£)</th>
+                    <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Proposed Project Grant (£)</th>
+                  </tr>
+              <tr>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">BIBBY MARINE SERVICES LIMITED</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">North West</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£29,206,575.00</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£19,471,355.50</td>
+              </tr>
+              
+              <tr class="bg-gray-50">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Liverpool John Moores University</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">North West</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£99,989.00</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£99,989.00</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700" colspan="4">
+                    <div><a class="flex items-center gap-1 text-sm/5 font-medium table-read-more" data-headlessui-state="">
+                        Read more<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-gray-400"><path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg></a></div>
+                </td>
+              </tr>
+              <tr class="table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">DNV GL UK LIMITED</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">London</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£27,138.00</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£6,784.50</td>
+              </tr>
+              <tr class="bg-gray-50 table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">SHELL INTERNATIONAL PETROLEUM COMPANY LIMITED</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">London</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£120,320.00</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£30,080.00</td>
+              </tr>
+              <tr class="table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">KONGSBERG MARITIME LIMITED</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Scotland</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+              </tr>
+              <tr class="bg-gray-50 table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">OFFSHORE RENEWABLE ENERGY CATAPULT</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Yorkshire and The Humber</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£197,752.00</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£197,752.00</td>
+              </tr>
+              <tr class="table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Aberdeen Harbour Board</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Scotland</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£316,053.00</td>
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£224,828.10</td>
+              </tr>
+              <tr class="table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700" colspan="4">
+                    <p>The market for OSW (Off-Shore Wind) support vessels is growing rapidly, with between 62-149 vessels required in UK Waters by 2030. However, even best-in-class vessels currently use fossil fuel and might do so throughout their entire life costing over £17.5m in damage to the environment. All the UK-operating SOV have been built abroad.</p>
+
+                    <p>Bibby Marine (BML), alongside partners Kongsberg, Shell, DNV, Liverpool John Moores University (LJMU), the Port of Aberdeen (PoA) and ORE Catapult, is leading a project to build the first electric SOV (eSOV) in the UK. This 90m electric vessel, would operate completely emission-free in-field and would feature a sizable battery unlike any installed on a DP vessel before, with dual-fuel methanol-powered engines as back-ups.</p>
+                    
+                    <p>SOV's service the windfarm industry, supporting the maintenance operations of offshore wind farms (OWF). Battery power is the natural solution for an SOV operating in an OWF - , essentially a giant powerplant. The ship will be ready for offshore charging, which will give it the ability to operate fully electric, before recharging at night, therefore completing up to a full two-week cycle of in-field operations, emissions-free. For long transits, the engines will be in use and will still have a 90% reduction in emissions compared to a conventional vessel, saving the taxpayer approximately £787,500py in damage to the environment compared to a conventional SOV. The near shore operations of this vessel will be completed under battery-power only, which also reduces the impact of emissions on public health.</p>
+                    
+                    <p>This project uses developing technology in order operate emission-free, but we are using equipment that has already been proven in action, integrating them all together and at a scale never reached before. If offshore charging is not available, the vessel will be able to use its methanol engines to recharge the batteries, reducing emissions by 50% compared to a conventional SOV. We believe the project will also break the stalemate between the vessel and infrastructure technology, kicking off the demand for zero-emission vessels.</p>
+                    
+                    <p>We have a strong consortium of high-quality industry stakeholders, and we are committed to promote and re-develop British shipbuilding. We will be working alongside British shipyards and the NSO to maximise the benefits such a landmark ship will have on the industry. This project will position the UK as a pioneer in the sector and showcase UK leadership in the design and integration of battery-powered vessels.</p></td>
+              </tr>
+              <tr class="bg-gray-50 table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700" colspan="4">
+                    <div><a class="flex items-center gap-1 text-sm/5 font-medium table-show-less" data-headlessui-state="">
+                        Show less<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-gray-400"><path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg></a></div>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        <table class="min-w-full bg-white border border-gray-300 content-table">   
+            <thead>
+                <tr>
+                    <th class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" colspan="4" style="font-weight: bold;">eSOV: Zero Emission Network Of Workboats (ZENOW)</th>
+                  </tr>
+              <tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Organisation Name</th>
+                <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Work Region</th>
+                <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Proposed Project Costs (£)</th>
+                <td class="px-6 py-3 border-b border-gray-300 text-left text-sm font-medium text-gray-900" style="font-weight: bold;">Proposed Project Grant (£)</th>
+                </tr>
+                <tr>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">H.TAYLOR & SON(BROCKLEY)LIMITED</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£2,558,640.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£1,981,586.20</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">University of Plymouth</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South West</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£166,057.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£166,057.00</td>
+                  </tr>
+                  <tr class="bg-gray-50">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700" colspan="4">
+                        <div><a class="flex items-center gap-1 text-sm/5 font-medium table-read-more" data-headlessui-state="">
+                            Read more<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-gray-400"><path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg></a></div>
+                    </td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">LLOYD'S REGISTER EMEA</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£154,962.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£77,481.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">AQUA SUPERPOWER LIMITED</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£601,173.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£438,641.10</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Falmouth Harbour Commissioners</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South West</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Yarmouth (IOW) Harbour Commissioners</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">ZERO MARINE SERVICES LIMITED</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">CHEETAH MARINE INTERNATIONAL LTD</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£557,488.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£432,988.90</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">URBAN TRUANT POWER LTD</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£257,808.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£180,465.60</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Environment Agency</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">RAD PROPULSION LTD</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South East</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£1,129,219.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£790,453.30</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">ROYAL YACHTING ASSOCIATION</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South West</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">WPNSA LIMITED</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South West</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Fowey Harbour Commissioners</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South West</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+                  <tr class="table-tr-hidden">
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">Salcombe Harbour Authority</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">South West</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                    <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700">£0.00</td>
+                  </tr>
+              <tr class="table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700" colspan="4">
+                    <p>The Zero Emission Workboat Network (ZENOW) project, led by RS Electric Boats (RSE), is a partnership of leading UK marine industry businesses and organizations that will make a step change in zero emission workboat operations. It will do this through the deployment of the world's largest network of zero emission electric workboats.</p>
+
+                    <p>The network will consist of twenty RS Electric workboats of three different classes, five new Aqua Superpower chargers and will be operated for a minimum of three years across 10 geographic locations.</p>
+
+                    <p>The project's technology partners RAD Propulsion and Aqua Superpower will deliver fleet-wide IoT monitoring systems to collect a unique set of operational and performance data. Data analytics and insights will be developed by the University of Plymouth and RAD Propulsion. Urban Truant will develop a booking app and digital management tool for electric water-taxi and ferry operations with the goal of developing an electric vessel franchise model to drive business growth for the consortium.</p>
+
+                    <p>ZENOW will inform and aid the partners and the wider UK maritime industry as it adopts zero emissions vessels. It will develop technology and products that can help the UK dominate the rapidly growing zero emissions sector worldwide.</p>
+
+                    <p>Workboat operators included in the network include:</p>
+
+                    <p>The Environment Agency for river enforcement tasks on the Thames and in East Anglia Salcombe, Yarmouth, Falmouth and Fowey Harbour Commissioners for harbour management operations Urban Truant for a foot passenger ferry service to the Isle of Wight Zeromarine for construction support and safety standby work, predominantly on the Thames.</p>
+                    <p>Royal Yachting Association (RYA), the UKs national power boat and sailing bodyWeymouth & Portland National Sailing Academy (2012 Olympic sailing venue) for coaching of all levels (from grassroots to Olympic), event management and safety boat operations.</p>
+                    <p>ZENOW will place the UK at the forefront of workboat electrification. It will empower multiple UK workboat users to start their transition to zero emission operations and it will enhance and support the market position of UK companies that provide electric boats and supporting technologies. ZENOW will further strengthen Aqua Superpower as the leading charging network in the maritime industry and will support the deployment of RAD Propulsions scalable family of electric drives and connected digital fleet technology.</p>
+
+                    <p>The International maritime industry is moving ever faster towards electrification and this project will help ensure that the UK is at the forefront of this revolution.</p>
+            </td>
+              </tr>
+              <tr class="bg-gray-50 table-tr-hidden">
+                <td class="px-6 py-4 border-b border-gray-300 text-sm text-gray-700" colspan="4">
+                    <div><a class="flex items-center gap-1 text-sm/5 font-medium table-show-less" data-headlessui-state="">
+                        Show less<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4 fill-gray-400"><path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg></a></div>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+        <!--pagenation-->
+        <div class="mt-6 flex items-center justify-between gap-2">
+            <button class="inline-flex items-center justify-center px-2 py-[calc(theme(spacing.[1.5])-1px)] rounded-lg border border-transparent shadow ring-1 ring-black/10 whitespace-nowrap text-sm font-medium text-gray-950 data-[disabled]:bg-transparent data-[hover]:bg-gray-50 data-[disabled]:opacity-40" type="button" disabled="" data-headlessui-state="disabled" data-disabled=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4"><path fill-rule="evenodd" d="M9.78 4.22a.75.75 0 0 1 0 1.06L7.06 8l2.72 2.72a.75.75 0 1 1-1.06 1.06L5.47 8.53a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0Z" clip-rule="evenodd"></path></svg>Previous</button>
+            
+            <div class="flex gap-2 max-sm:hidden"><a data-active="true" class="size-7 rounded-lg text-center text-sm/7 font-medium data-[hover]:bg-gray-100 data-[active]:shadow data-[active]:ring-1 data-[active]:ring-black/10 data-[active]:data-[hover]:bg-gray-50" data-headlessui-state="" href="/blog">1</a><a class="size-7 rounded-lg text-center text-sm/7 font-medium data-[hover]:bg-gray-100 data-[active]:shadow data-[active]:ring-1 data-[active]:ring-black/10 data-[active]:data-[hover]:bg-gray-50" data-headlessui-state="" href="/blog?page=2">2</a></div>
+            
+            <a class="inline-flex items-center justify-center px-2 py-[calc(theme(spacing.[1.5])-1px)] rounded-lg border border-transparent shadow ring-1 ring-black/10 whitespace-nowrap text-sm font-medium text-gray-950 data-[disabled]:bg-transparent data-[hover]:bg-gray-50 data-[disabled]:opacity-40" data-headlessui-state="" href="/blog?page=2">Next<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" data-slot="icon" class="size-4"><path fill-rule="evenodd" d="M6.22 4.22a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 0 1-1.06-1.06L8.94 8 6.22 5.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd"></path></svg></a>
+        </div>    
+    </div>
+
+    <div class="text-gray-800 text-opacity-40 text-xs tracking-widest px-12" style="border-top: 1px solid black; background-color:#0a0e1c; color: white">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 py-24">
+            <div>
+                <div class="text-gray-900 text-4xl font-display" style=" color: white">
+                     <!-- <img src="./logo.webp" style="width:220px"> -->
+                    Logo
+                </div>
+            </div>
+            <div>
+                <div class=" text-gray-900 text-sm tracking-widest mb-6" style=" color: #78c6bf">More Info</div>
+                <a href="#" class="block mb-4">Home</a>
+                <a href="#" class="block mb-4">About</a>
+                <a href="#" class="block mb-4">Info</a>
+                <a href="#" class="block mb-4">FAQ</a>
+            </div>
+            <div>
+                <div class="text-gray-900 text-sm tracking-widest mb-6" style=" color: #78c6bf">Projects</div>
+                <a href="#" class="block mb-4">ZEVI projects</a>
+                <a href="#" class="block mb-4">CMDC Project</a>
+            </div>
+            <div>
+                <div class="text-gray-900 text-sm tracking-widest mb-6" style=" color: #78c6bf">Reports</div>
+                <a href="#" class="block mb-4">Bibby project</a>
+                <a href="#" class="block mb-4">RESTORE Project</a>
+                <a href="#" class="block mb-4">EnBW/BP Report</a>
+                <a href="#" class="block mb-4">Other LJMU reports</a>
+            </div>
+            
+        </div>
+    <!-- </div>
+    <div class="text-sm lg:text-base text-center font-heading pb-24 tracking-widest uppercase opacity-50">&copy; Clean Maritime. all rights reserved</div> -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer="defer"></script>
+</body>
+</html>
